@@ -42,7 +42,6 @@ module.exports = {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
-      ignoreWarnings: [/Serializing big strings/],
       use: [
         {
           loader: '@svgr/webpack',
