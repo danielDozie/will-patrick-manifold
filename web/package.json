@@ -23,6 +23,7 @@
     "verify": "(cd .. && yarn verify)",
     "verify:dir": "npx prettier --check .; yarn lint --max-warnings 0; tsc --pretty --project tsconfig.json --noEmit"
   },
+  "packageManager": "yarn@1.22.19",
   "dependencies": {
     "@amplitude/analytics-browser": "1.9.4",
     "@floating-ui/react": "0.19.0",
