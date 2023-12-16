@@ -1,0 +1,42 @@
+name: Check PRs
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  FORCE_COLOR: 3
+  NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+  check:
+    name: Static analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Node 18
+        uses: actions/setup-node@v4
+        env:
+          FORCE_COLOR: 0 # https://github.com/actions/setup-node/issues/317
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --prefer-offline --frozen-lockfile
+      - name: Run Typescript checker on web client
+        if: ${{ success() || failure() }}
+        working-directory: web
+        run: tsc --pretty --project tsconfig.json --noEmit
+      - name: Run Typescript checker on cloud functions
+        if: ${{ success() || failure() }}
+        working-directory: backend/functions
+        run: tsc -b -v --pretty
