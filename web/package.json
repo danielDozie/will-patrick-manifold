@@ -96,5 +96,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "tsc-files --noEmit --incremental false"
+  },
+  "engines": {
+    "npm": "9.6.7",
+    "node": "18.17.0"
   }
 }
