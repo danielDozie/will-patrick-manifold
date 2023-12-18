@@ -44,6 +44,8 @@ module.exports = {
     if (!isServer) {
       config.node = {
         fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
       }
     }
     config.module.rules.push({
