@@ -98,7 +98,7 @@
     "*.{ts,tsx}": "tsc-files --noEmit --incremental false"
   },
   "engines": {
-    "npm": "9.6.7",
-    "node": "18.17.0"
+    "npm": "10.2.3",
+    "node": "18.19.0"
   }
 }
