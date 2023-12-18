@@ -40,14 +40,7 @@ module.exports = {
       { hostname: '*.giphy.com' },
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.node = {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
-      }
-    }
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
