@@ -96,5 +96,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "tsc-files --noEmit --incremental false"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

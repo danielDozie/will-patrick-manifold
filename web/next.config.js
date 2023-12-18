@@ -54,12 +54,7 @@ module.exports = {
           },
         },
       ],
-    }),
-      config.node = {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
-      }
+    })
     return config
   },
   async redirects() {
