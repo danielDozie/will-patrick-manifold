@@ -4,6 +4,7 @@ const API_DOCS_URL = 'https://docs.manifold.markets/api'
 module.exports = {
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  compress: true,
   optimizeFonts: false,
   modularizeImports: {
     '@heroicons/react/solid/?(((\\w*)?/?)*)': {
@@ -42,7 +43,6 @@ module.exports = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      ignoreWarnings: [/Serializing big strings/],
       test: /\.svg$/,
       use: [
         {
